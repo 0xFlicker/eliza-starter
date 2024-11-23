@@ -1,7 +1,19 @@
-import { Character, ModelProviderName, defaultCharacter } from "@ai16z/eliza";
+import { DiscordClientInterface } from "@ai16z/client-discord";
+import {
+    Character,
+    Client,
+    ModelProviderName,
+    Plugin,
+    defaultCharacter,
+} from "@ai16z/eliza";
 
-export const character: Character = {
+export type AnnotatedCharacter = Character & {
+    clientTypes?: ("auto" | "discord" | "telegram" | "twitter")[];
+};
+
+export const character: AnnotatedCharacter = {
     ...defaultCharacter,
+    clientTypes: ["discord"],
     // name: "Eliza",
     // plugins: [],
     // clients: [],
